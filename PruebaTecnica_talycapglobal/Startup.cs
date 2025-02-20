@@ -68,26 +68,26 @@ namespace PruebaTecnica
                 string xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 string xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 s.IncludeXmlComments(xmlPath);
-                s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Por favor inserte el Token generado en el login",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                s.AddSecurityRequirement(new OpenApiSecurityRequirement {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        }
-                    },
-                    new string[] { }
-                    }
-                });
+                //s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                //{
+                //    In = ParameterLocation.Header,
+                //    Description = "Por favor inserte el Token generado en el login",
+                //    Name = "Authorization",
+                //    Type = SecuritySchemeType.ApiKey
+                //});
+                //s.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                //{
+                //    new OpenApiSecurityScheme
+                //    {
+                //        Reference = new OpenApiReference
+                //        {
+                //            Type = ReferenceType.SecurityScheme,
+                //            Id = "Bearer"
+                //        }
+                //    },
+                //    new string[] { }
+                //    }
+                //});
             });
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
